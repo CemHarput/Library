@@ -1,10 +1,11 @@
 package com.example.library.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.UUID;
-
+@Data
 @Entity
 public class Book {
 
@@ -25,6 +26,18 @@ public class Book {
     public Book() {
 
     }
+
+    public Book(@JsonProperty("id") UUID id,@JsonProperty("bName") String bName,@JsonProperty("bSubName") String bSubName,@JsonProperty("bSerialName") String bSerialName,@JsonProperty("author") String author,@JsonProperty("publishHouse") String publishHouse,@JsonProperty("isbn") long isbn,@JsonProperty("desc") String desc) {
+        this.id=id;
+        this.bName = bName;
+        this.bSubName = bSubName;
+        this.bSerialName = bSerialName;
+        Author = author;
+        PublishHouse = publishHouse;
+        this.isbn = isbn;
+        this.desc = desc;
+    }
+
 
 
 
