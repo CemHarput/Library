@@ -6,16 +6,20 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
 @Entity
-
+@Table(name="author")
 public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Column(name="author_name")
     private String name;
+
     private String desc;
-    @OneToMany(mappedBy = "author")
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="author_name",referencedColumnName = "author_name")
     private List<Book> books;
 
     public List<Book> getBooks() {
