@@ -3,20 +3,20 @@ package com.example.library.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long isbn;
+    private UUID id;
 
     private String bName;
     private String bSubName;
     private String bSerialName;
     private String Author;
     private String PublishHouse;
-
+    private long isbn;
     private String desc;
 
 
