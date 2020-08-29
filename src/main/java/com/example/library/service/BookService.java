@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BookService {
     private BookDAO bookDAO;
@@ -17,9 +19,13 @@ public class BookService {
         this.bookRepo = bookRepo;
     }
 
-    public int addPerson(Book book)
+    public int addBook(Book book)
     {
         return  bookDAO.insertBook(book);
+    }
+
+    public List<Book> getAllBook(){
+        return bookDAO.selectAllBook();
     }
 
 }

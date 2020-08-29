@@ -20,4 +20,9 @@ public class FakeBookDAO implements BookDAO {
         BookDB.add(new Book(id,book.getbName(),book.getbSubName(),book.getbSerialName(),book.getAuthor(),book.getPublishHouse(),book.getIsbn(),book.getDesc())); // if you want  to  add data manually
         return 1;
     }
+
+    @Override
+    public List<Book> selectAllBook() {
+        return BookDB;
+    }
 }
