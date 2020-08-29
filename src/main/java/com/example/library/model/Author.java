@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 @Data
 @Entity
-@Table(name="author")
+
 public class Author {
 
     @Id
