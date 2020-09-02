@@ -15,31 +15,25 @@ public class Book {
     private String bName;
     private String bSubName;
     private String bSerialName;
-    private String Author;
-    private String PublishHouse;
+    @ManyToOne
+    private Author Author;
+
+    @ManyToOne
+    private PublishingHouse PublishHouse;
+
     private long isbn;
     private String desc;
 
-
-
-
     public Book() {
-
     }
 
-    public Book(@JsonProperty("id") UUID id,@JsonProperty("bName") String bName,@JsonProperty("bSubName") String bSubName,@JsonProperty("bSerialName") String bSerialName,@JsonProperty("author") String author,@JsonProperty("publishHouse") String publishHouse,@JsonProperty("isbn") long isbn,@JsonProperty("desc") String desc) {
-        this.id=id;
-        this.bName = bName;
-        this.bSubName = bSubName;
-        this.bSerialName = bSerialName;
-        Author = author;
-        PublishHouse = publishHouse;
-        this.isbn = isbn;
-        this.desc = desc;
+    public UUID getId() {
+        return id;
     }
 
-
-
+    public void setId(UUID id) {
+        this.id = id;
+    }
 
     public String getbName() {
         return bName;
@@ -65,19 +59,19 @@ public class Book {
         this.bSerialName = bSerialName;
     }
 
-    public String getAuthor() {
+    public com.example.library.model.Author getAuthor() {
         return Author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(com.example.library.model.Author author) {
         Author = author;
     }
 
-    public String getPublishHouse() {
+    public PublishingHouse getPublishHouse() {
         return PublishHouse;
     }
 
-    public void setPublishHouse(String publishHouse) {
+    public void setPublishHouse(PublishingHouse publishHouse) {
         PublishHouse = publishHouse;
     }
 

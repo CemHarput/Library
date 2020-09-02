@@ -8,27 +8,29 @@ import java.util.List;
 import java.util.Set;
 @Data
 @Entity
-
 public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    @Column(name="author_name")
+
     private String name;
 
     private String desc;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="author_name",referencedColumnName = "author_name")
+    @OneToMany
     private List<Book> books;
+
+    public Author() {
+    }
 
     public List<Book> getBooks() {
         return books;
     }
 
-    public Author() {
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 
     public String getName() {
